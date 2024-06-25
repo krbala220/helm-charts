@@ -54,7 +54,7 @@ spec:
               - -cookie-expire=24h
               - -scope=user:info user:check-access user:list-projects
               - -pass-access-token=true
-              - -pass-basic-auth=false
+              - -pass-basic-auth=true
               - -skip-provider-button=true
               - -skip-auth-regex=^/metrics
               envFrom:
@@ -79,11 +79,11 @@ spec:
       enabled: "True"
     auth:
       disable_login_form: "False"
-      disable_signout_menu: "True"
+      disable_signout_menu: "False"
     auth.basic:
       enabled: "True"
     auth.proxy:
-      auto_sign_up: "True"
+      auto_sign_up: "False"
       enabled: "True"
       enable_login_token: "True"
       header_property: "username"
