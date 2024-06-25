@@ -10,7 +10,7 @@ oauthProxy:
   allowHtpasswd: ""
   # The Grafa Role to assign to Oauth Users
   # Viewier, Editor, Admin
-  orgRoleAssigned: Viewer
+  orgRoleAssigned: Admin
   cookieSecret: "ZXhhbXBsZS1jb29raWUtc2VjcmV0enp6"
 
 dashboards: []
