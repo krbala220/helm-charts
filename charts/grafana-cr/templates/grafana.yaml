@@ -23,6 +23,9 @@ spec:
       template:
         spec:
           volumes:
+          - name: grafana-data
+            persistentVolumeClaim:
+              claimName: {{ include "grafana-cr.fullname" . }}-pvc
           - name: {{ include "grafana-cr.fullname" . }}-tls
             secret:
               secretName: {{ include "grafana-cr.fullname" . }}-tls
@@ -74,12 +77,19 @@ spec:
                 - mountPath: /etc/proxy/certs
                   name: {{ include "grafana-cr.fullname" . }}-certs
                   readOnly: false
+  persistentVolumeClaim:
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
   config:
     auth.anonymous:
       enabled: "True"
     auth:
-      disable_login_form: "False"
-      disable_signout_menu: "True"
+      disable_login_form: "True"
+      disable_signout_menu: "False"
     auth.basic:
       enabled: "True"
     auth.proxy:
