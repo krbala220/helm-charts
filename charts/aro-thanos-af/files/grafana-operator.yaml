@@ -4,6 +4,13 @@ subscriptions:
     installPlanApproval: Automatic
     source: community-operators
     sourceNamespace: openshift-marketplace
+Config:
+  env: 
+  - name: "DASHBOARD_NAMESPACES_ALL"
+        value: "true"
+  env:
+    name: "WATCH_NAMESPACE"
+      value: ""
 
 operatorGroups:
   - name: aro-thanos-af
