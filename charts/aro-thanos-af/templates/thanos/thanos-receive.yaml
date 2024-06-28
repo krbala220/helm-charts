@@ -11,6 +11,13 @@ spec:
     matchLabels:
       app: thanos-receive
   serviceName: thanos-receive
+  persistentVolumeClaim:
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
   template:
     metadata:
       labels:
